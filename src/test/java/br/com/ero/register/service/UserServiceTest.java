@@ -1,4 +1,4 @@
-package br.com.ero.register;
+package br.com.ero.register.service;
 import br.com.ero.register.entity.User;
 import br.com.ero.register.respositories.UserRepository;
 import br.com.ero.register.services.UserService;
@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.time.LocalDate;
 
 @SpringBootTest
-class RegisterApplicationTests {
+class UserServiceTest {
 
 	@Mock
 	private UserRepository	 userRespository;
@@ -22,7 +22,7 @@ class RegisterApplicationTests {
 
 	@Test
 	void should_register_user_successfully() {
-		User userBeforeSave = new User("Lucas", "1234", LocalDate.of(2001, 4, 30));
+		User userBeforeSave = new User(null, "Lucas", "1234", LocalDate.of(2001, 4, 30));
 		User userAfterSave = userBeforeSave;
 		userAfterSave.setId("1");
 		Mockito.when(userRespository.save(userBeforeSave)).thenReturn(userAfterSave);
@@ -31,6 +31,19 @@ class RegisterApplicationTests {
 
 		Mockito.verify(userRespository).save(userBeforeSave);
 		Assertions.assertEquals(userAfterSave, user);
+	}
+
+
+	@Test
+	void should_return_error_when_age_is_less_than_eighteen(){
+		User user = new User(null, "Lucas", "1234", LocalDate.of(2010, 4, 30));
+
+		var exception = Assertions.assertThrows(RuntimeException.class, () -> userService.register(user));
+
+		Mockito.verifyNoInteractions(userRespository);
+
+		Assertions.assertEquals("Idade não permitida.", exception.getMessage());
+
 	}
 
 }

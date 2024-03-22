@@ -1,20 +1,18 @@
 package br.com.ero.register.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collection = "users")
 public class User {
 
-    public User(String name, String password, LocalDate dataOfBirth) {
-        this.name = name;
-        this.password = password;
-        this.dataOfBirth = dataOfBirth;
-    }
-
+    @MongoId
     private String id;
     private String name;
     private String password;
