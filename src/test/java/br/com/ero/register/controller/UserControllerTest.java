@@ -1,5 +1,6 @@
 package br.com.ero.register.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,7 @@ public class UserControllerTest {
 
 
     @Test
-    void should_return_username_length_error() {
+    void should_return_username_length_error() throws Exception {
         var request = new UserRequest("Lu", "1234", LocalDate.now());
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/users")
