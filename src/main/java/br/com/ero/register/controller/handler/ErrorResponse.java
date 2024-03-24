@@ -1,4 +1,4 @@
-package br.com.ero.register.controller;
+package br.com.ero.register.controller.handler;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

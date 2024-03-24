@@ -1,4 +1,4 @@
-package br.com.ero.register.controller;
+package br.com.ero.register.controller.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -22,7 +22,7 @@ public class UserRequest {
     @Size(min =4, max = 6, message = "O tamanho deve ser entre 4 e 6.")
     private String password;
 
-    @NotNull
+    @NotNull(message = "O campo de data não pode pode ser null.")
     private LocalDate dateOfBirth;
 
 }
