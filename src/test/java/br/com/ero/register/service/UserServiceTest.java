@@ -1,7 +1,7 @@
 package br.com.ero.register.service;
 
 import br.com.ero.register.entity.User;
-import br.com.ero.register.respositories.UserRepository;
+import br.com.ero.register.repositories.UserRepository;
 import br.com.ero.register.services.UserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

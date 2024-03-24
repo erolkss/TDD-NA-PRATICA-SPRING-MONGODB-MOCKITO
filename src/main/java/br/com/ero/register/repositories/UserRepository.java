@@ -1,4 +1,4 @@
-package br.com.ero.register.respositories;
+package br.com.ero.register.repositories;
 
 import br.com.ero.register.entity.User;
 import org.springframework.data.mongodb.repository.MongoRepository;

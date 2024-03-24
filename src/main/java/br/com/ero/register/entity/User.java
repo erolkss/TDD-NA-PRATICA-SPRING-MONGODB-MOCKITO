@@ -1,6 +1,8 @@
 package br.com.ero.register.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
@@ -16,5 +18,5 @@ public class User {
     private String id;
     private String name;
     private String password;
-    private LocalDate dataOfBirth;
+    private LocalDate dateOfBirth;
 }
